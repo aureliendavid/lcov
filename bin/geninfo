@@ -2121,6 +2121,8 @@ sub read_intermediate_json($$$)
 	}
 
 	$$basedir_ref = $json->{"current_working_directory"};
+	$$basedir_ref =~ tr/\n/\//;
+	$$basedir_ref =~ s/^C:/\/c/i;
 
 	for my $file (@{$json->{"files"}}) {
 		my $filename = $file->{"file"};
