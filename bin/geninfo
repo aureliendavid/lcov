@@ -4423,10 +4423,11 @@ sub parse_ignore_errors(@)
 		my $item_id = $ERROR_ID{lc($item)};
 
 		if (!defined($item_id)) {
-			die("ERROR: unknown argument for --ignore-errors: ".
-			    "$item\n");
+			# die("ERROR: unknown argument for --ignore-errors: ".
+			#     "$item\n");
+		} else {
+			$ignore[$item_id] = 1;
 		}
-		$ignore[$item_id] = 1;
 	}
 }
 
